@@ -1,12 +1,18 @@
-Witnessing genuine multi-partite entanglement from a subset of marginalia both
-in multi-partite qubit systems and multi-mode continuous variable Gaussian
-systems.
+WITNESS ME provides procedures for witnessing genuine multi-partite
+entanglement from a subset of marginalia both in multi-partite qubit systems
+and multi-mode continuous variable Gaussian systems.
 
 Prerequisites
 
+  - MOSEK (tested with version 9.3)
+
+    $ pip3 install --user --upgrade Mosek
+
+  - PICOS (tested with version 2.4)
+
+    $ pip3 install --user --upgrade picos
+
   - Python 3
-  - MOSEK 9
-  - PICOS 2.4
 
 Installation
 

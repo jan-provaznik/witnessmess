@@ -25,11 +25,11 @@ from ._gaussian import (
 # (2.1) Continuous variable (Gaussian) utilities
 
 from ._gaussian import (
-    optimalVarianceMatrixFromWitness 
-        as optimal_gaussian_state,
     randomVarianceMatrix 
         as random_gaussian_state,
     computePairwisePPTcondition
-        as gaussian_pairwise_ppt
+        as gaussian_pairwise_ppt,
+    optimalVarianceMatrixFromWitness 
+        as optimal_gaussian_state
 )
 
