@@ -1,0 +1,28 @@
+Witnessing genuine multi-partite entanglement from a subset of marginalia both
+in multi-partite qubit systems and multi-mode continuous variable Gaussian
+systems.
+
+Prerequisites
+
+  - Python 3
+  - MOSEK 9
+  - PICOS 2.4
+
+Installation
+
+  To be determined.
+
+References
+
+  - https://dx.doi.org/10.1103/PhysRevA.98.062102
+  - https://dx.doi.org/10.1103/PhysRevA.93.020104
+  - https://dx.doi.org/10.1364/QIM.2019.F5A.45
+
+  - https://doi.org/10.1088/1367-2630/8/4/051
+  - https://arxiv.org/abs/2103.07327
+  - https://dx.doi.org/10.1103/PhysRevA.98.062102
+
+Documentation
+
+  The documentation is left as exercise for the reader.
+
