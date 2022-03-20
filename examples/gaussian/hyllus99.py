@@ -24,5 +24,5 @@ w, W = optimal_gaussian_witness(G, 4)
 print(w)
 
 # References
-# [1] https://doi.org/10.1088/1367-2630/8/4/051
+#   [1] https://doi.org/10.1088/1367-2630/8/4/051
 

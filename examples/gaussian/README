@@ -1,10 +1,15 @@
-We demonstrate a some of the continuous variable (Gaussian) examples found
-within the paper [1], in particular
+We demonstrate some of the continuous variable (Gaussian) examples found
+within the papers [1] and [2], in particular
 
   - hyllus97
   - hyllus99
 
+  - mista3
+  - mista4a
+  - mista4b
+
 References
 
   [1] https://doi.org/10.1088/1367-2630/8/4/051
+  [2] https://arxiv.org/abs/2103.07327
 
