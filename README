@@ -5,18 +5,15 @@ and multi-mode continuous variable Gaussian systems.
 Prerequisites
 
   - MOSEK (tested with version 9.3)
-
-    $ pip3 install --user --upgrade Mosek
-
   - PICOS (tested with version 2.4)
-
-    $ pip3 install --user --upgrade picos
-
   - Python 3
 
 Installation
 
-  To be determined.
+  - In particular to install the (tagged) release v0.2.0 execute
+
+    pip install --user --upgrade \
+      git+https://github.com/jan-provaznik/witnessme.git@v0.2.0
 
 References
 
