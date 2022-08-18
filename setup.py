@@ -6,7 +6,7 @@
 
 import setuptools
 
-VERSION = '0.2.0'
+VERSION = '0.2.1'
 DESCRIPTION = 'Witnessing multi-partite entanglement.'
 
 # Yes, yes, yes!
@@ -23,7 +23,8 @@ setuptools.setup(
     install_requires = [
         'Mosek >= 9.3',
         'picos >= 2.4',
-        'numpy >= 1.22'
+        'numpy >= 1.22',
+        'scipy >= 1.8'
     ],
     packages = [ 'witnessme' ]
 )

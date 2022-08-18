@@ -6,6 +6,8 @@
 # both in multi-partite qubit systems and multi-mode continuous variable
 # Gaussian systems.
 
+version = '0.2.1'
+
 # (1.0) Discrete variable (qubit) version
 
 from ._discrete import (
