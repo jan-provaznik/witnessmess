@@ -10,10 +10,10 @@ Prerequisites
 
 Installation
 
-  - In particular to install the (tagged) release v0.2.0 execute
+  - In particular to install the (tagged) release v0.2.2 execute
 
     pip install --user --upgrade \
-      git+https://github.com/jan-provaznik/witnessme.git@v0.2.0
+      git+https://github.com/jan-provaznik/witnessme.git@v0.2.2
 
 References
 
@@ -24,6 +24,10 @@ References
   - https://doi.org/10.1088/1367-2630/8/4/051
   - https://arxiv.org/abs/2103.07327
   - https://dx.doi.org/10.1103/PhysRevA.98.062102
+
+Examples
+
+  See the examples directory.
 
 Documentation
 

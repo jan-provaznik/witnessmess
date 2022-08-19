@@ -2,7 +2,7 @@ import numpy
 from braket import ket2dm, eyemat, ketnorm
 from witnessme import optimal_discrete_witness
 
-def parschiv5a (q):
+def paraschiv5a (q):
     X = numpy.array([
          -3 / 35  -  1j / 22,
           4 / 31  +  1j / 40,
@@ -44,13 +44,13 @@ def parschiv5a (q):
     
     return (1 - q) * R + q * E
     
-# According to [1] the noise tolerance for the parschiv4b state is ~ 0.11% when
+# According to [1] the noise tolerance for the paraschiv4b state is ~ 0.11% when
 # inferring from the { (0, 1), (1, 2), (2, 3), (3, 4) } graph.
 #
 # [1] https://dx.doi.org/10.1103/PhysRevA.98.062102
 
 for q in numpy.linspace(0, 0.02, 11):
-    rho = parschiv5a(q)
+    rho = paraschiv5a(q)
     w, W = optimal_discrete_witness(rho, 5, [ (0, 1), (1, 2), (2, 3), (3, 4) ])
     print('{:8f} {:+8f}'.format(q, w))  
 

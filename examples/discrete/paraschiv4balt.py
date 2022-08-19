@@ -2,7 +2,7 @@ import numpy
 from braket import ket2dm, eyemat, qubit_from_mask
 from witnessme import optimal_discrete_witness
 
-def parschiv4balt (q):
+def paraschiv4balt (q):
     phi1 = 1 / numpy.sqrt(2) * (
         qubit_from_mask([ 1, 1, 0, 0 ]) * numpy.exp(3j / 7 * numpy.pi) -
         qubit_from_mask([ 0, 0, 0, 0 ])
@@ -39,13 +39,13 @@ def parschiv4balt (q):
 
     return (1 - q) * R + q * E
 
-# According to [1] the noise tolerance for the parschiv4balt state is ~ 3% when
+# According to [1] the noise tolerance for the paraschiv4balt state is ~ 3% when
 # inferring from the { (0, 1), (1, 2), (1, 3) } graph.
 #
 # [1] https://dx.doi.org/10.1103/PhysRevA.98.062102
 
 for q in numpy.linspace(0, 0.05, 11):
-    rho = parschiv4balt(q)
+    rho = paraschiv4balt(q)
     w, W = optimal_discrete_witness(rho, 4, [ (0, 1), (1, 2), (1, 3) ])
     print('{:8f} {:+8f}'.format(q, w))  
 
