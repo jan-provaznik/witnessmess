@@ -1,6 +1,6 @@
 import numpy
 from braket import ket2dm, eyemat, ketnorm
-from witnessme import optimal_discrete_witness
+from witnessme import discrete_optimal_witness
 
 def paraschiv5a (q):
     X = numpy.array([
@@ -51,7 +51,7 @@ def paraschiv5a (q):
 
 for q in numpy.linspace(0, 0.02, 11):
     rho = paraschiv5a(q)
-    w, W = optimal_discrete_witness(rho, 5, [ (0, 1), (1, 2), (2, 3), (3, 4) ])
+    w, W = discrete_optimal_witness(rho, [ 2, 2, 2, 2, 2 ], [ (0, 1), (1, 2), (2, 3), (3, 4) ])
     print('{:8f} {:+8f}'.format(q, w))  
 
 # Note to self: testing this on i5-7200 was not the brightest idea.

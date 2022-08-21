@@ -1,6 +1,6 @@
 import numpy
 from braket import ket2dm, eyemat, qubit_from_mask
-from witnessme import optimal_discrete_witness
+from witnessme import discrete_optimal_witness
 
 def miklin3b (q):
     S000 = qubit_from_mask([ 0, 0, 0 ])
@@ -30,12 +30,12 @@ def miklin3b (q):
     return (1 - q) * R + q * E
 
 # According to [1] the noise tolerance for the miklin3b state is ~ 5% when
-# inferring from the { (0, 2), (1, 2) } graph.
+# inferring from the partial { (0, 2), (1, 2) } graph.
 #
 # [1] https://dx.doi.org/10.1103/PhysRevA.93.020104
 
 for q in numpy.linspace(0, 0.1, 21):
     rho = miklin3b(q)
-    w, W = optimal_discrete_witness(rho, 3, [ (0, 2), (1, 2) ])
+    w, W = discrete_optimal_witness(rho, [ 2, 2, 2 ], [ (0, 2), (1, 2) ])
     print('{:8f} {:+8f}'.format(q, w))
 

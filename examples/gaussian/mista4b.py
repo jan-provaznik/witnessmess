@@ -1,5 +1,5 @@
 import numpy
-from witnessme import optimal_gaussian_witness, gaussian_pairwise_ppt
+from witnessme import gaussian_optimal_witness, gaussian_pairwise_ppt
 
 # The matrices were introduced in section 5 of [1]
 
@@ -23,7 +23,7 @@ print(e)
 
 # Per table 1 of [1] the value should be ~ -0.0681
 
-w, W = optimal_gaussian_witness(G, 4, [ (0, 1), (1, 2), (1, 3) ])
+w, W = gaussian_optimal_witness(G, 4, [ (0, 1), (1, 2), (1, 3) ])
 print(w)
 
 # Per text the witness matrix should be blind in the (0, 2) block.

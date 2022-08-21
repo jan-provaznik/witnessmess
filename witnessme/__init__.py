@@ -6,27 +6,30 @@
 # both in multi-partite qubit systems and multi-mode continuous variable
 # Gaussian systems.
 
-version = '0.2.2'
+version = '0.3.0'
 
-# (1.0) Discrete variable (qubit) version
+# Discrete variable multi-qubit 
+# genuine multi-partite entanglement witness
 
-from ._discrete import (
+from ._discrete_qubits import (
     optimalGenuineMultipartiteEntanglementWitness 
-        as _optimal_discrete_witness
+        as _discrete_optimal_witness
 )
 
-def optimal_discrete_witness (rho, num, use_system_list = []):
+def discrete_optimal_witness (rho, dim, use_system_list = []):
     '''
-    Find an optimal partially blind witness of genuine multi-partite
-    entanglement respective to a particular multi-qubit quantum system
-    comprising at least three qubits.
+    Finds an optimal partially blind witness of genuine multi-partite
+    entanglement respective to a particular multi-partite quantum system
+    comprising at least three parts.
+
+    Currently we only support multi-qubit quantum systems.
 
     Parameters
     ----------
     rho : numpy.ndarray
         Matrix of the multi-qubit system, in Kronecker form.
-    num : int
-        Number of qubits making up the system.
+    dim : list of integers 
+        Dimensions of individual parts making up the multi-partite system.
     use_system_list : iterable over pairs
         Which two-body correlations to consider. If empty, the original
         configuration (see Miklin, 10.1103/PhysRevA.93.020104) is used. 
@@ -40,25 +43,150 @@ def optimal_discrete_witness (rho, num, use_system_list = []):
         Witness matrix.
     '''
 
-    return _optimal_discrete_witness(rho, num, list(use_system_list))
+    num = len(dim)
 
-# (2.0) Continuous variable (Gaussian) version
+    if num < 3:
+        raise ValueError('We require at least a tri-partite quantum system.')
+    if not all(d == 2 for d in dim):
+        raise ValueError('We only support multi-qubit quantum systems. Please file a feature request.')
+
+    return _discrete_optimal_witness(rho, num, use_system_list)
+
+# Continuous variable Gaussian
+# genuine multi-partite entanglement witness
 
 from ._gaussian import (
     optimalGenuineMultipartiteEntanglementWitness 
-        as optimal_gaussian_witness,
+        as _gaussian_optimal_witness,
     optimalGenuineMultipartiteEntanglementWitnessLinearGraph
-        as optimal_gaussian_witness_blind_linear
-)
-
-# (2.1) Continuous variable (Gaussian) utilities
-
-from ._gaussian import (
-    randomVarianceMatrix 
-        as random_gaussian_state,
-    computePairwisePPTcondition
-        as gaussian_pairwise_ppt,
+        as _gaussian_optimal_witness_linear,
     optimalVarianceMatrixFromWitness 
-        as optimal_gaussian_state
+        as _gaussian_optimal_covmat,
+    randomVarianceMatrix 
+        as _gaussian_random_covmat,
+    computePairwisePPTcondition
+        as _gaussian_pairwise_ppt
 )
+
+def gaussian_optimal_witness (cov, num, use_system_list = []):
+    '''
+    Finds an optimal partially blind witness of genuine multi-partite
+    entanglement respective to a particular multi-mode continous variable 
+    Gaussian quantum state characterized by its covariance matrix.
+
+    Parameters
+    ----------
+    cov : numpy.ndarray
+        Covariance matrix, interleaved (X, P) form.
+    num : int
+        Number of modes.
+    use_system_list : iterable over pairs
+        Which two-body correlations to consider. 
+        If empty, the full covariance matrix is used.
+
+    Returns
+    -------
+    float64
+        Witness value.
+    numpy.ndarray
+        Witness matrix.
+    '''
+
+    return _gaussian_optimal_witness(cov, num, use_system_list)
+
+def gaussian_optimal_witness_linear (cov, num):
+    '''
+    Finds an optimal partially blind witness of genuine multi-partite
+    entanglement respective to a particular multi-mode continous variable 
+    Gaussian quantum state characterized by its covariance matrix.
+
+    The witness is partially blind and relies only on the nearest-neighbor
+    two-body correlations, that is, on [ (0, 1), (1, 2), ... (num - 1, num) ].
+
+    Parameters
+    ----------
+    cov : numpy.ndarray
+        Covariance matrix, interleaved (X, P) form.
+    num : int
+        Number of modes.
+
+    Returns
+    -------
+    float64
+        Witness value.
+    numpy.ndarray
+        Witness matrix.
+    '''
+
+    return _gaussian_optimal_witness_linear(cov, num)
+
+def gaussian_optimal_covmat (wit, num, min_eig = 0.2, min_diag = 1, max_diag = 10):
+    '''
+    Finds covariance matrix of Gaussian state minimizing the provided
+    entanglement witness.
+
+    Elements of the covariance matrix can be constrained using the optional
+    parameters min_eig, min_diag and max_diag. For example, setting a lower
+    bound on eigenvalues limits squeezing.
+
+    Parameters
+    ----------
+    wit : numpy.ndarray
+        Witness matrix.
+    num : int
+        Number of modes.
+    min_eig : float64
+        Lower bound on eigenvalues.
+    min_diag : float64
+        Lower bound on diagonal elements.
+    max_diag : float64
+        Upper bound on diagonal elements.
+
+    Returns
+    -------
+    float64
+        Witness value.
+    numpy.ndarray
+        Covariance matrix.
+    '''
+
+    return _gaussian_optimal_covmat(wit, num, min_eig, min_diag, max_diag)
+
+def gaussian_random_covmat (num):
+    '''
+    Constructs a random Gaussian covariance matrix.
+
+    Parameters
+    ----------
+    num : int
+        Number of modes.
+
+    Returns
+    -------
+    numpy.ndarray
+        Covariance matrix.
+    '''
+
+    return _gaussian_random_covmat(num)
+
+def gaussian_pairwise_ppt (cov, num):
+    '''
+    Computes Gaussian PPT criterion for all two-mode marginals of Gaussian
+    state characterized by its covariance matrix.
+
+    Parameters
+    ----------
+    cov : numpy.ndarray
+        Covariance matrix, interleaved (X, P) form.
+    num : int
+        Number of modes.
+
+    Returns
+    -------
+    float64 generator
+        Least eigenvalues of the PPT condition applied to the marginals.
+        Negative value implies the two-mode marginal is entangled.
+    '''
+
+    return _gaussian_pairwise_ppt(cov, num)
 
