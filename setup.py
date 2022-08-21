@@ -6,7 +6,7 @@
 
 import setuptools
 
-VERSION = '0.3.0'
+VERSION = '0.3.1'
 DESCRIPTION = 'Witnessing multi-partite entanglement.'
 
 # Yes, yes, yes!

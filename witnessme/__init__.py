@@ -6,31 +6,29 @@
 # both in multi-partite qubit systems and multi-mode continuous variable
 # Gaussian systems.
 
-version = '0.3.0'
+version = '0.3.1'
 
-# Discrete variable multi-qubit 
+# Discrete variable multi-qudit 
 # genuine multi-partite entanglement witness
 
-from ._discrete_qubits import (
+from ._discrete import (
     optimalGenuineMultipartiteEntanglementWitness 
         as _discrete_optimal_witness
 )
 
-def discrete_optimal_witness (rho, dim, use_system_list = []):
+def discrete_optimal_witness (rho, dim, use_pairs_list = []):
     '''
     Finds an optimal partially blind witness of genuine multi-partite
     entanglement respective to a particular multi-partite quantum system
     comprising at least three parts.
 
-    Currently we only support multi-qubit quantum systems.
-
     Parameters
     ----------
     rho : numpy.ndarray
-        Matrix of the multi-qubit system, in Kronecker form.
+        Matrix of the multi-qudit system, in Kronecker form.
     dim : list of integers 
         Dimensions of individual parts making up the multi-partite system.
-    use_system_list : iterable over pairs
+    use_pairs_list : iterable over pairs
         Which two-body correlations to consider. If empty, the original
         configuration (see Miklin, 10.1103/PhysRevA.93.020104) is used. 
         In particular the three qubit case uses [ (0, 1), (0, 2), (1, 2) ].
@@ -43,14 +41,7 @@ def discrete_optimal_witness (rho, dim, use_system_list = []):
         Witness matrix.
     '''
 
-    num = len(dim)
-
-    if num < 3:
-        raise ValueError('We require at least a tri-partite quantum system.')
-    if not all(d == 2 for d in dim):
-        raise ValueError('We only support multi-qubit quantum systems. Please file a feature request.')
-
-    return _discrete_optimal_witness(rho, num, use_system_list)
+    return _discrete_optimal_witness(rho, dim, use_pairs_list)
 
 # Continuous variable Gaussian
 # genuine multi-partite entanglement witness
