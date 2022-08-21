@@ -6,7 +6,7 @@
 # both in multi-partite qubit systems and multi-mode continuous variable
 # Gaussian systems.
 
-version = '0.3.1'
+version = '0.3.2'
 
 # Discrete variable multi-qudit 
 # genuine multi-partite entanglement witness
@@ -59,7 +59,7 @@ from ._gaussian import (
         as _gaussian_pairwise_ppt
 )
 
-def gaussian_optimal_witness (cov, num, use_system_list = []):
+def gaussian_optimal_witness (cov, num, use_pairs_list = []):
     '''
     Finds an optimal partially blind witness of genuine multi-partite
     entanglement respective to a particular multi-mode continous variable 
@@ -71,7 +71,7 @@ def gaussian_optimal_witness (cov, num, use_system_list = []):
         Covariance matrix, interleaved (X, P) form.
     num : int
         Number of modes.
-    use_system_list : iterable over pairs
+    use_pairs_list : iterable over pairs
         Which two-body correlations to consider. 
         If empty, the full covariance matrix is used.
 
@@ -83,7 +83,7 @@ def gaussian_optimal_witness (cov, num, use_system_list = []):
         Witness matrix.
     '''
 
-    return _gaussian_optimal_witness(cov, num, use_system_list)
+    return _gaussian_optimal_witness(cov, num, use_pairs_list)
 
 def gaussian_optimal_witness_linear (cov, num):
     '''

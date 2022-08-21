@@ -15,10 +15,10 @@ Installation
     pip install --user --upgrade \
       git+https://github.com/jan-provaznik/witnessme.git
 
-  To install a particular the (tagged) release, say v0.3.1, execute
+  To install a particular (tagged) release, say v0.3.2, execute
 
     pip install --user --upgrade \
-      git+https://github.com/jan-provaznik/witnessme.git@v0.3.1
+      git+https://github.com/jan-provaznik/witnessme.git@v0.3.2
 
 References
 
@@ -37,4 +37,7 @@ Examples
 Documentation
 
   The documentation is left as exercise for the reader.
+
+  - discrete_optimal_witness (rho, dim, use_pairs_list)
+  - gaussian_optimal_witness (cov, num, use_pairs_list)
 
