@@ -11,8 +11,8 @@
 # similar to the discrete variable approach described by Paraschiv [3].
 #
 # [1] https://doi.org/10.1088/1367-2630/8/4/051         (Hyllus, Eisert)
-# [2] https://arxiv.org/abs/2103.07327                  (Nordgren, Mista)
-# [3] https://dx.doi.org/10.1103/PhysRevA.98.062102     (Paraschiv)
+# [2] https://doi.org/10.1103/PhysRevA.106.062410       (Nordgren, Mista)
+# [3] https://doi.org/10.1103/PhysRevA.98.062102        (Paraschiv)
 
 import picos
 import numpy

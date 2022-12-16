@@ -30,5 +30,5 @@ print(w)
 print(W.round(4))
 
 # References
-#   [1] https://arxiv.org/abs/2103.07327
+#   [1] https://doi.org/10.1103/PhysRevA.106.062410
 

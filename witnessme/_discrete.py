@@ -9,10 +9,10 @@
 # A general multi-qudit states are supported by using generalized Gell-Mann
 # matrices [4, (3-5)], a generalization of Pauli matrices to higher dimensions.
 #
-# [1] https://dx.doi.org/10.1103/PhysRevA.98.062102     (Paraschiv)
-# [2] https://dx.doi.org/10.1103/PhysRevA.93.020104     (Miklin)
-# [3] https://dx.doi.org/10.1364/QIM.2019.F5A.45        (Micuda)
-# [4] http://dx.doi.org/10.1088/1751-8113/41/23/235303  (Bertlmann)
+# [1] https://doi.org/10.1103/PhysRevA.98.062102        (Paraschiv)
+# [2] https://doi.org/10.1103/PhysRevA.93.020104        (Miklin)
+# [3] https://doi.org/10.1364/QIM.2019.F5A.45           (Micuda)
+# [4] https://doi.org/10.1088/1751-8113/41/23/235303    (Bertlmann)
 
 import picos
 import numpy
