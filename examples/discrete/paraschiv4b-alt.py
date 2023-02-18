@@ -1,6 +1,6 @@
 import numpy
 from braket import ket2dm, eyemat, qubit_from_mask
-from witnessme import discrete_optimal_witness
+from witnessmess import dm_optimal_witness
 
 def paraschiv4balt (q):
     phi1 = 1 / numpy.sqrt(2) * (
@@ -46,6 +46,6 @@ def paraschiv4balt (q):
 
 for q in numpy.linspace(0, 0.05, 11):
     rho = paraschiv4balt(q)
-    w, W = discrete_optimal_witness(rho, [ 2, 2, 2, 2 ], [ (0, 1), (1, 2), (1, 3) ])
+    w, W = dm_optimal_witness(rho, [ 2, 2, 2, 2 ], [ (0, 1), (1, 2), (1, 3) ])
     print('{:8f} {:+8f}'.format(q, w))  
 

@@ -1,5 +1,5 @@
 import numpy
-from witnessme import gaussian_optimal_witness
+from witnessmess import cm_optimal_witness
 
 # Covariance matrix (92) of [1].
 
@@ -12,7 +12,7 @@ G = numpy.array([
     [ 0, -1, 0, -1, 0,  3 ]
 ]) * 0.5
 
-w, W = gaussian_optimal_witness(G, 3)
+w, W = cm_optimal_witness(G, 3, [ (0, 1), (0, 2), (1, 2) ])
 
 # According to [1] we should get -0.3056
 

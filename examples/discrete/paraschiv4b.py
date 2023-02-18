@@ -1,6 +1,6 @@
 import numpy
 from braket import ket2dm, eyemat, ketnorm
-from witnessme import discrete_optimal_witness
+from witnessmess import dm_optimal_witness 
 
 def paraschiv4b (q):
     X = numpy.array([
@@ -35,6 +35,6 @@ def paraschiv4b (q):
 
 for q in numpy.linspace(0, 0.10, 21):
     rho = paraschiv4b(q)
-    w, W = discrete_optimal_witness(rho, [ 2, 2, 2, 2 ], [ (0, 1), (1, 2), (1, 3) ])
+    w, W = dm_optimal_witness(rho, [ 2, 2, 2, 2 ], [ (0, 1), (1, 2), (1, 3) ])
     print('{:8f} {:+8f}'.format(q, w))  
 

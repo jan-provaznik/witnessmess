@@ -1,12 +1,28 @@
-We demonstrate some of the continuous variable (Gaussian) examples found
-within the papers [1] and [2], in particular
+The concept of genuine multipartite entanglement has been investigated for
+continuous variable quantum systems. We demonstrate the functionality on some
+of the states that have been described in [1] and [2].
+
+Examples
 
   - hyllus97
-  - hyllus99
+    with 3 modes
+    with graph { (0, 1), (0, 2), (1, 2) }
 
-  - mista3
-  - mista4a
-  - mista4b
+  - hyllus99
+    with 3 modes
+    with graph { (0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3) }
+
+  - nordgren3
+    with 3 modes
+    with graph { (0, 1), (1, 2) }
+
+  - nordgren4a
+    with 4 modes
+    with graph { (0, 1), (1, 2), (2, 3) }
+
+  - nordgren4b
+    with 4 modes
+    with graph { (0, 1), (1, 2), (1, 3) }
 
 References
 

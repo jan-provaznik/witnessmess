@@ -1,6 +1,6 @@
 import numpy
 from braket import ket2dm, eyemat, qubit_from_mask
-from witnessme import discrete_optimal_witness
+from witnessmess import dm_optimal_witness
 
 def miklin3a (q):
     X001 = 1 / 3 * numpy.exp(+ 1j * numpy.pi / 3)
@@ -35,6 +35,6 @@ def miklin3a (q):
 
 for q in numpy.linspace(0, 0.2, 21):
     rho = miklin3a(q)
-    w, W = discrete_optimal_witness(rho, [ 2, 2, 2 ])
+    w, W = dm_optimal_witness(rho, [ 2, 2, 2 ])
     print('{:8f} {:+8f}'.format(q, w))
 

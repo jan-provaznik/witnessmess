@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 #
-# 2021 - 2022 Jan Provaznik (jan@provaznik.pro)
+# 2019 - 2023 Jan Provaznik (jan@provaznik.pro)
 #
 # Let's see how poorly this goes.
 
 import setuptools
 
-VERSION = '0.3.3'
+VERSION = '0.4.0'
 DESCRIPTION = 'Witnessing multi-partite entanglement.'
 
 # Yes, yes, yes!
@@ -23,7 +23,6 @@ setuptools.setup(
     license = 'LGPL',
 
     install_requires = [
-        'Mosek >= 9.3',
         'picos >= 2.4',
         'numpy >= 1.22',
         'scipy >= 1.8'

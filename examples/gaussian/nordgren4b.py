@@ -1,5 +1,5 @@
 import numpy
-from witnessme import gaussian_optimal_witness, gaussian_pairwise_ppt
+from witnessmess import cm_optimal_witness, cm_pairwise_pt
 
 # The matrices were introduced in section 5 of [1]
 
@@ -14,16 +14,14 @@ G = numpy.array([
     [     0, 0.51,     0, 2.06,     0, 0.62,     0, 1.49 ]
 ])
 
-print(G.shape)
+# Per table 3 of [1] the 2-mode marginalia are separable
 
-# Per table 3 of [1] the 2-mode marginalia separable
-
-e = gaussian_pairwise_ppt(G, 4)
+e = cm_pairwise_pt(G, 4)
 print(e)
 
 # Per table 1 of [1] the value should be ~ -0.0681
 
-w, W = gaussian_optimal_witness(G, 4, [ (0, 1), (1, 2), (1, 3) ])
+w, W = cm_optimal_witness(G, 4, [ (0, 1), (1, 2), (1, 3) ])
 print(w)
 
 # Per text the witness matrix should be blind in the (0, 2) block.
