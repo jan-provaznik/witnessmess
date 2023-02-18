@@ -1,3 +1,14 @@
 name: Publish packages to PyPi.
 on:
   workflow_dispatch:
+
+jobs:
+  nothing:
+    name: Do nothing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say nothing
+        shell: bash
+        run: |-
+          echo 'Do nothing'
+
