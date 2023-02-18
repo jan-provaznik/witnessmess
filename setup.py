@@ -6,18 +6,20 @@
 
 import setuptools
 
-VERSION = '0.3.2'
+VERSION = '0.3.3'
 DESCRIPTION = 'Witnessing multi-partite entanglement.'
 
 # Yes, yes, yes!
 
 setuptools.setup(
-    name = 'witnessme',
+    name = 'witnessmess',
     version = VERSION,
     description = DESCRIPTION,
+    long_description = DESCRIPTION,
+    long_description_content_type = 'text/plain',
     author = 'Jan Provaznik',
     author_email = 'jan@provaznik.pro',
-    url = 'https://provaznik.pro/witnessme',
+    url = 'https://provaznik.pro/witnessmess',
     license = 'LGPL',
 
     install_requires = [
@@ -26,6 +28,6 @@ setuptools.setup(
         'numpy >= 1.22',
         'scipy >= 1.8'
     ],
-    packages = [ 'witnessme' ]
+    packages = [ 'witnessmess' ]
 )
 

@@ -1,0 +1,3 @@
+name: Publish packages to PyPi.
+on:
+  workflow_dispatch:
