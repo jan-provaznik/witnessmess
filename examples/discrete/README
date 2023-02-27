@@ -1,18 +1,42 @@
-We demonstrate a some of the discrete (qubit) examples found within the
-literature [1] and [2]. In particular,
+The concept of genuine multipartite entanglement has been investigated for
+discrete quantum systems. We demonstrate the functionality on some of the
+states that have been described in [1] and [2].
 
-  - miklin3a uses { (0, 1), (1, 2) } graph
-  - miklin3b uses { (0, 2), (1, 2) } graph
-  - miklin4a uses { (0, 1), (1, 2), (2, 3) } graph
+Examples
 
-  - paraschiv4b uses { (0, 1), (1, 2), (1, 3) } graph
-  - paraschiv4balt uses the same graph as paraschiv4b
-  - paraschiv5a uses { (0, 1), (1, 2), (2, 3), (3, 4) } graph
+  - miklin3a 
+    with 3 qubits
+    with graph { (0, 1), (0, 2), (1, 2) }
 
-where one is discouraged from running the 5 mode example on subpar hardware.
+  - miklin3b 
+    with 4 qubits
+    with graph { (0, 2), (1, 2) }
+
+  - miklin13
+    with 3 qutrits
+    with graph { (0, 1), (0, 2), (1, 2) }
+
+  - miklin4a 
+    with 4 qubits
+    with graph { (0, 1), (1, 2), (2, 3) }
+
+  - paraschiv4b 
+    with 4 qubits
+    with graph { (0, 1), (1, 2), (1, 3) }
+
+  - paraschiv4b-alt 
+    with 4 qubits
+    with graph { (0, 1), (1, 2), (1, 3) }
+
+  - paraschiv5a 
+    with 5 qubits
+    with graph { (0, 1), (1, 2), (2, 3), (3, 4) }
+  
+  Evaluation of the 5 qubit example is generally 
+  discouraged on slow machines.
 
 References
 
-  [1] https://dx.doi.org/10.1103/PhysRevA.93.020104
-  [2] https://dx.doi.org/10.1103/PhysRevA.98.062102
+  [1] https://doi.org/10.1103/PhysRevA.93.020104
+  [2] https://doi.org/10.1103/PhysRevA.98.062102
 

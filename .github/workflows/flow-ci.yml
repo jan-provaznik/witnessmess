@@ -3,12 +3,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  nothing:
-    name: Do nothing
+  build:
+    name: Build and test a wheel.
     runs-on: ubuntu-latest
     steps:
-      - name: Say nothing
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |-
+          python -m pip install --upgrade pip
+          python -m pip install build pytest cvxopt
+
+      - name: Build platform independent wheel 
+        run: |-
+          python -m build --wheel --outdir dist
+
+      - name: Install the wheel locally
+        run: |-
+          python -m pip install dist/*.whl
+
+      - name: Clean up source before testing
         shell: bash
         run: |-
-          echo 'Do nothing'
+          mv witnessmess witnessmess-source
 
+      - name: Execute tests
+        run: |-
+          python -m pytest -- tests

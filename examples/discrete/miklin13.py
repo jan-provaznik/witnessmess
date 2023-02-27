@@ -1,6 +1,6 @@
 import numpy
 import functools
-from witnessme import discrete_optimal_witness
+from witnessmess import dm_optimal_witness 
 
 def kron (* args):
     return functools.reduce(numpy.kron, args, 1)
@@ -50,6 +50,6 @@ def miklin13 (q):
 
 for q in numpy.linspace(0, 0.35, 36):
     rho = miklin13(q)
-    wit, mat = discrete_optimal_witness(rho, [ 3, 3, 3 ])
-    print('{:.4f}'.format(q), wit)
+    wit, mat = dm_optimal_witness(rho, [ 3, 3, 3 ])
+    print('{:.4f} {:.6f}'.format(q, wit))
 

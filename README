@@ -2,42 +2,12 @@ WITNESS MESS provides procedures for witnessing genuine multi-partite
 entanglement from a subset of marginalia both in multi-partite qubit systems
 and multi-mode continuous variable Gaussian systems.
 
-Prerequisites
-
-  - MOSEK (tested with version 9.3)
-  - PICOS (tested with version 2.4)
-  - Python 3
-
-Installation
-
-  To install the current version, execute 
-
-    pip install --user --upgrade \
-      git+https://github.com/jan-provaznik/witnessme.git
-
-  To install a particular (tagged) release, say v0.3.2, execute
-
-    pip install --user --upgrade \
-      git+https://github.com/jan-provaznik/witnessme.git@v0.3.2
-
-References
-
-  - https://doi.org/10.1103/PhysRevA.98.062102
-  - https://doi.org/10.1103/PhysRevA.93.020104
-  - https://doi.org/10.1364/QIM.2019.F5A.45
-
-  - https://doi.org/10.1088/1367-2630/8/4/051
-  - https://doi.org/10.1103/PhysRevA.106.062410
-  - https://doi.org/10.1103/PhysRevA.98.062102
-
 Examples
 
-  See the examples directory.
+  See the examples directory. Both discrete and continuous variable examples
+  are provided.
 
 Documentation
 
   The documentation is left as exercise for the reader.
-
-  - discrete_optimal_witness (rho, dim, use_pairs_list)
-  - gaussian_optimal_witness (cov, num, use_pairs_list)
 
