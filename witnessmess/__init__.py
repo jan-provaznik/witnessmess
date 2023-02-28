@@ -8,7 +8,7 @@ in multi-partite qubit systems and multi-mode continuous variable Gaussian
 systems.
 '''
 
-version = '0.4.0'
+version = '0.4.2'
 
 # Genuine multi-partite entanglement witness for discrete variable multi-qudit
 # systems inferred from their density matrices.
@@ -42,12 +42,13 @@ __all__ = [
     'dm_is_physical',
     'cm_is_physical', 
 
-    'cm_optimal_gaussian',
     'cm_build_random', 
     'cm_build_sigma',
     'cm_build_ptranspose',
     'cm_build_quadrature_reordering',
     'cm_pairwise_pt', 
     'cm_is_pairwise_ppt',
+
+    'cm_optimal_gaussian'
 ]
 
