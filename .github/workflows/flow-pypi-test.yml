@@ -1,4 +1,4 @@
-name: Publish packages to PyPi
+name: Publish packages to PyPi (testing)
 on:
   workflow_dispatch:
 
@@ -22,9 +22,10 @@ jobs:
         run: |-
           python -m build --wheel --outdir dist
 
-      - name: Publish wheel to PyPi
+      - name: Publish wheel to PyPi (testing)
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
+          password: ${{ secrets.PYPI_API_TOKEN_TEST }}
           packages_dir: dist
           skip_existing: true
