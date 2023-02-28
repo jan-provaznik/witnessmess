@@ -378,7 +378,7 @@ def cm_build_random (mode_count, spectral_factor = 2.0):
 
     return T.T @ G @ T
 
-def cm_is_physical (G, mode_count):
+def cm_is_physical (covariance_matrix, mode_count):
     '''
     Every physical covariance matrix G must satisfy Heisenberg uncertainty
     relations. This can be determined by checking if (G + 1j * sigma) is a
@@ -393,7 +393,7 @@ def cm_is_physical (G, mode_count):
 
     Parameters
     ----------
-    G : numpy.ndarray
+    covariance_matrix : numpy.ndarray
         Covariance matrix (multi-mode).
     mode_count : int
         Number of modes in G.
@@ -407,9 +407,13 @@ def cm_is_physical (G, mode_count):
     ----------
     '''
 
-    S = cm_build_sigma(mode_count)
-    q = numpy.linalg.eigvalsh(G + 1j * S).min() 
-    return (q >= 0.0)
+    value_sigma = cm_build_sigma(mode_count)
+    value_simon = numpy.linalg.eigvalsh(covariance_matrix + 1j * value_sigma).min() 
+
+    condition_simon = (value_simon >= 0)
+    condition_issym = scipy.linalg.issymmetric(covariance_matrix, rtol = 1e-8)
+
+    return (condition_simon and condition_issym)
 
 def cm_build_sigma (mode_count):
     '''
