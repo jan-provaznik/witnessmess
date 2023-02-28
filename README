@@ -84,3 +84,42 @@ Documentation
       defines the interval (1, 1 + spectral_factor) symplectic eigenvalues
       are randomly chosen from
 
+References
+
+  The recipes for semi-definite programs are discussed in papers that are
+  referenced in the code where appropriate. States used in examples were taken
+  from different papers and are referenced as well. The same applies to the
+  conditions, criteria and recipes for construction of various mathematical
+  objects (such as Gell-Mann matrices) used in the implementation.
+
+  The implementation references the following papers.
+
+  - Multiparticle entanglement as an emergent phenomenon
+    https://doi.org/10.1103/PhysRevA.93.020104
+
+  - Proving genuine multiparticle entanglement from separable nearest-neighbor marginals
+    https://doi.org/10.1103/PhysRevA.98.062102
+
+  - Verifying genuine multipartite entanglement of the whole from its separable parts
+    https://doi.org/10.1364/QIM.2019.F5A.45
+
+  - Optimal entanglement witnesses for continuous-variable systems
+    https://doi.org/10.1088/1367-2630/8/4/051
+
+  - Continuous Variable Quantum Information: Gaussian States and Beyond
+    https://doi.org/10.1142/s1230161214400010
+
+  - Certifying emergent genuine multipartite entanglement with a partially blind witness
+    https://doi.org/10.1103/PhysRevA.106.062410
+
+  - Quantum-noise matrix for multimode systems: U(n) invariance, squeezing, and normal forms
+    https://doi.org/10.1103/PhysRevA.49.1567
+
+  - Peres-Horodecki Separability Criterion for Continuous Variable Systems
+    https://doi.org/10.1103/PhysRevLett.84.2726
+
+  - Two-element generation of the symplectic group
+    https://doi.org/10.2307/1993590
+
+  - Bloch vectors for qudits
+    https://doi.org/10.1088/1751-8113/41/23/235303
