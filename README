@@ -7,6 +7,17 @@ Examples
   See the examples directory. Both discrete and continuous variable examples
   are provided.
 
+Prerequisites
+
+  A suitable semi-definite optimizer is required. 
+
+  - MOSEK is a commercial optimization software. Free personal licenses are
+    provided to members of academia. It is preferred for its unmatched speed
+    and versatility. 
+
+  - CVXOPT is an open source convex optimization software. It can be used as
+    well, however, it is considerably slower than MOSEK.
+
 Documentation
 
   Genuine multipartite entanglement can be witnessed with a pair of functions
