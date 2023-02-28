@@ -324,11 +324,11 @@ def cm_build_random (mode_count, spectral_factor = 2.0):
 
     - Per Equation (2.28) the symplectic eigenvalues in the canonical form of
       bona-fide covariance matrix are lower bound. The lower bound, adjusted
-      for the alternative definition of covarince matrix, equals to 1. 
+      for the alternative definition of covariance matrix, equals to 1. 
 
     The algorithm works as follows.
 
-    - Construct a random vector of physical symplectic eigen-values
+    - Construct a random vector of physical symplectic eigenvalues
       from the interval (1, 1 + spectral_factor).
 
     - Construct a random invertible matrix. This can be done by sampling some
@@ -471,9 +471,9 @@ def cm_pairwise_pt (covariance_matrix, mode_count):
 
 def cm_is_pairwise_ppt (covariance_matrix, mode_count):
     '''
-    Checks the continous variable version of the Peres-Horodecki separability
+    Checks the continuous variable version of the Peres-Horodecki separability
     criterion (positive partial transpose, PPT) for all two-mode marginals of 
-    continous variable state characterized by its covariance matrix.
+    continuous variable state characterized by its covariance matrix.
 
     See Simon (https://doi.org/10.1103/PhysRevLett.84.2726) for details on the
     continuous variable version of Peres-Horodecki criterion.

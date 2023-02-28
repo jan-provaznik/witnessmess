@@ -199,8 +199,8 @@ def dm_optimal_witness (density_matrix, component_dims, use_pairs_list = []):
 
 def dm_is_physical (density_matrix):
     '''
-    Determines if a given density matrix is represents a physical quantum
-    state by checking whether it is positive semi-definite and normalized.
+    Determines if a given density matrix is represents a physical quantum state
+    by checking whether it is Hermitian, positive semi-definite and normalized.
 
     Parameters
     ----------
@@ -218,6 +218,6 @@ def dm_is_physical (density_matrix):
 
     condition_trace = numpy.isclose(value_trace - 1, 0)
     condition_eigen = (value_eigen >= 0)
-
-    return (condition_trace and condition_eigen)
+    condition_isher = scipy.linalg.ishermitian(density_matrix)
+    return (condition_trace and condition_eigen and condition_isher)
 
