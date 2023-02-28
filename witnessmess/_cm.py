@@ -324,11 +324,11 @@ def cm_build_random (mode_count, spectral_factor = 2.0):
 
     - Per Equation (2.28) the symplectic eigenvalues in the canonical form of
       bona-fide covariance matrix are lower bound. The lower bound, adjusted
-      for the alternative definition of covarince matrix, equals to 1. 
+      for the alternative definition of covariance matrix, equals to 1. 
 
     The algorithm works as follows.
 
-    - Construct a random vector of physical symplectic eigen-values
+    - Construct a random vector of physical symplectic eigenvalues
       from the interval (1, 1 + spectral_factor).
 
     - Construct a random invertible matrix. This can be done by sampling some
@@ -378,7 +378,7 @@ def cm_build_random (mode_count, spectral_factor = 2.0):
 
     return T.T @ G @ T
 
-def cm_is_physical (G, mode_count):
+def cm_is_physical (covariance_matrix, mode_count):
     '''
     Every physical covariance matrix G must satisfy Heisenberg uncertainty
     relations. This can be determined by checking if (G + 1j * sigma) is a
@@ -393,7 +393,7 @@ def cm_is_physical (G, mode_count):
 
     Parameters
     ----------
-    G : numpy.ndarray
+    covariance_matrix : numpy.ndarray
         Covariance matrix (multi-mode).
     mode_count : int
         Number of modes in G.
@@ -407,9 +407,13 @@ def cm_is_physical (G, mode_count):
     ----------
     '''
 
-    S = cm_build_sigma(mode_count)
-    q = numpy.linalg.eigvalsh(G + 1j * S).min() 
-    return (q >= 0.0)
+    value_sigma = cm_build_sigma(mode_count)
+    value_simon = numpy.linalg.eigvalsh(covariance_matrix + 1j * value_sigma).min() 
+
+    condition_simon = (value_simon >= 0)
+    condition_issym = scipy.linalg.issymmetric(covariance_matrix, rtol = 1e-8)
+
+    return (condition_simon and condition_issym)
 
 def cm_build_sigma (mode_count):
     '''
@@ -471,9 +475,9 @@ def cm_pairwise_pt (covariance_matrix, mode_count):
 
 def cm_is_pairwise_ppt (covariance_matrix, mode_count):
     '''
-    Checks the continous variable version of the Peres-Horodecki separability
+    Checks the continuous variable version of the Peres-Horodecki separability
     criterion (positive partial transpose, PPT) for all two-mode marginals of 
-    continous variable state characterized by its covariance matrix.
+    continuous variable state characterized by its covariance matrix.
 
     See Simon (https://doi.org/10.1103/PhysRevLett.84.2726) for details on the
     continuous variable version of Peres-Horodecki criterion.

@@ -5,7 +5,7 @@ from witnessmess import dm_is_physical
 
 
 def test_dm_physical ():
-    for loop_index in range(1000):
+    for loop_index in range(10000):
 
         # Construct a random hermitian matrix
         H = numpy.random.rand(16, 16) + 1j * numpy.random.rand(16, 16)

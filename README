@@ -9,5 +9,115 @@ Examples
 
 Documentation
 
-  The documentation is left as exercise for the reader.
+  Genuine multipartite entanglement can be witnessed with a pair of functions
+  that determine optimal entanglement witnesses for particular, either discrete
+  or (Gaussian) continuous variable, quantum states.
 
+  Please note that the definition of covariance matrices follows the
+  conventions from (https://doi.org/10.1088/1367-2630/8/4/051). 
+
+  - dm_optimal_witness (density_matrix, component_dims, use_pairs_list)
+
+    Produces an optimal genuine multipartite entanglement witness with respect
+    to the discrete variable multi-qudit state given by density_matrix.
+
+    : density_matrix 
+      defines the state, the matrix must be in Kronecker form
+
+    : component_dims 
+      defines a list of component dimensions,
+      for example a 3-qubit state has [ 2, 2, 2 ]
+
+    : use_pairs_list 
+      defines the list of two-body marginalia the witness is
+      permitted to use, if unset the entire density_matrix is used
+
+  - cm_optimal_witness (covariance_matrix, mode_count, use_pairs_list)
+  
+    Produces an optimal genuine multipartite entanglement witness with respect
+    to the continuous variable multi-mode state given by covariance_matrix.
+
+    : covariance_matrix 
+      defines the state, the matrix must be in X-P interleaved form
+
+    : mode_count 
+      defines the number of modes
+
+    : use_pairs_list 
+      defines the list of two-body marginalia the witness is
+      permitted to use, if unset the entire covariance_matrix is used
+
+  In addition there is a number of helper functions for both discrete and
+  continuous variable states.
+
+  - dm_is_physical (density_matrix)
+    
+    Determines whether the density matrix represents a physical state by
+    testing if the matrix is Hermitian, positive semi-definite and its trace
+    sufficiently close to one.
+
+    : density_matrix 
+      defines the matrix to be checked, must be in Kronecker form
+
+  - cm_is_physical (covariance_matrix, mode_count)
+
+    Determines whether the covariance matrix represents a physical state by
+    testing if the matrix is symmetric and satisfies uncertainty relations.
+
+    : covariance_matrix
+      defines the matrix to be checked, must be in X-P interleaved form
+
+    : mode_count
+      defines the number of modes of the state,
+      yes, it could be inferred from covariance_matrix but, alas, it is not
+
+  - cm_build_random (mode_count, spectral_factor)
+
+    Constructs a random bona-fide covariance matrix.
+
+    : mode_count
+      defines a number of modes of the resulting random state
+
+    : spectral_factor
+      defines the interval (1, 1 + spectral_factor) symplectic eigenvalues
+      are randomly chosen from
+
+References
+
+  The recipes for semi-definite programs are discussed in papers that are
+  referenced in the code where appropriate. States used in examples were taken
+  from different papers and are referenced as well. The same applies to the
+  conditions, criteria and recipes for construction of various mathematical
+  objects (such as Gell-Mann matrices) used in the implementation.
+
+  The implementation references the following papers.
+
+  - Multiparticle entanglement as an emergent phenomenon
+    https://doi.org/10.1103/PhysRevA.93.020104
+
+  - Proving genuine multiparticle entanglement from separable nearest-neighbor marginals
+    https://doi.org/10.1103/PhysRevA.98.062102
+
+  - Verifying genuine multipartite entanglement of the whole from its separable parts
+    https://doi.org/10.1364/QIM.2019.F5A.45
+
+  - Optimal entanglement witnesses for continuous-variable systems
+    https://doi.org/10.1088/1367-2630/8/4/051
+
+  - Continuous Variable Quantum Information: Gaussian States and Beyond
+    https://doi.org/10.1142/s1230161214400010
+
+  - Certifying emergent genuine multipartite entanglement with a partially blind witness
+    https://doi.org/10.1103/PhysRevA.106.062410
+
+  - Quantum-noise matrix for multimode systems: U(n) invariance, squeezing, and normal forms
+    https://doi.org/10.1103/PhysRevA.49.1567
+
+  - Peres-Horodecki Separability Criterion for Continuous Variable Systems
+    https://doi.org/10.1103/PhysRevLett.84.2726
+
+  - Two-element generation of the symplectic group
+    https://doi.org/10.2307/1993590
+
+  - Bloch vectors for qudits
+    https://doi.org/10.1088/1751-8113/41/23/235303
