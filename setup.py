@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 #
 # 2019 - 2023 Jan Provaznik (jan@provaznik.pro)
-#
-# Let's see how poorly this goes.
 
 import setuptools
 
-VERSION = '0.4.0'
+VERSION = '0.4.2'
 DESCRIPTION = 'Witnessing multi-partite entanglement.'
+
+with open('./README', encoding = 'utf-8') as file:
+    README = file.read()
 
 # Yes, yes, yes!
 
@@ -15,7 +16,7 @@ setuptools.setup(
     name = 'witnessmess',
     version = VERSION,
     description = DESCRIPTION,
-    long_description = DESCRIPTION,
+    long_description = README,
     long_description_content_type = 'text/plain',
     author = 'Jan Provaznik',
     author_email = 'jan@provaznik.pro',
