@@ -1,10 +1,10 @@
-name: Continous integration.
+name: Continous integration
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build and test a wheel.
+    name: Build and test the wheel
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,10 +25,10 @@ jobs:
         run: |-
           python -m pip install dist/*.whl
 
-      - name: Clean up source before testing
+      - name: Move source before running tests
         shell: bash
         run: |-
-          mv witnessmess witnessmess-source
+          mv witnessmess witnessmess-moved
 
       - name: Execute tests
         run: |-
