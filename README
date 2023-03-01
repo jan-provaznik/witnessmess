@@ -2,11 +2,6 @@ WITNESS MESS provides procedures for witnessing genuine multi-partite
 entanglement from a subset of marginalia both in multi-partite qubit systems
 and multi-mode continuous variable Gaussian systems.
 
-Examples
-
-  See the examples directory. Both discrete and continuous variable examples
-  are provided.
-
 Prerequisites
 
   A suitable semi-definite optimizer is required. 
@@ -17,6 +12,16 @@ Prerequisites
 
   - CVXOPT is an open source convex optimization software. It can be used as
     well, however, it is considerably slower than MOSEK.
+
+Installation
+
+  As of release 0.4.2 it is possible to retrieve the latest release of the 
+  package from PyPi by running 'pip install --user witnessmess' 
+
+Examples
+
+  See the examples directory. Both discrete and continuous variable examples
+  are provided.
 
 Documentation
 
