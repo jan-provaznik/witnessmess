@@ -4,7 +4,7 @@
 
 import setuptools
 
-VERSION = '0.4.2'
+VERSION = '0.4.3'
 DESCRIPTION = 'Witnessing multi-partite entanglement.'
 
 with open('./README', encoding = 'utf-8') as file:
@@ -25,8 +25,8 @@ setuptools.setup(
 
     install_requires = [
         'picos >= 2.4',
-        'numpy >= 1.22',
-        'scipy >= 1.8'
+        'numpy',
+        'scipy'
     ],
     packages = [ 'witnessmess' ]
 )

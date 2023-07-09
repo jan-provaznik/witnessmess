@@ -8,7 +8,7 @@ in multi-partite qubit systems and multi-mode continuous variable Gaussian
 systems.
 '''
 
-version = '0.4.2'
+version = '0.4.3'
 
 # Genuine multi-partite entanglement witness for discrete variable multi-qudit
 # systems inferred from their density matrices.
