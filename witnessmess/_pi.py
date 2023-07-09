@@ -5,7 +5,6 @@
 # Shared components.
 
 import picos
-import mosek
 
 # The number $K$ of unique unordered bi-partitions of $N$ elements is given by
 # the Stirling number of the second kind [4] as $K := 2^{N - 1} - 1$.
@@ -67,13 +66,18 @@ def _mosek_check_license ():
     '''
 
     try:
+        import mosek
+    except ImportError as error:
+        return False
+
+    try:
         mosek_env = picos.solvers.get_solver('mosek')._get_environment()
         mosek_env.checkoutlicense(mosek.feature.pton)
         mosek_env.checkinall()
-        return 1
     except mosek.Error as error:
-        return 0
+        return False
 
+    return True
 
 def picos_debug_constraints (problem):
     '''
